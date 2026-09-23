@@ -79,10 +79,9 @@ function displayResult(restaurant) {
     const budgetSymbol = getBudgetSymbol(restaurant.budget);
     
     resultDisplay.innerHTML = `
-        <div style="font-size: 3em; margin-bottom: 10px;">${restaurant.emoji}</div>
-        <div style="font-size: 1.4em; margin-bottom: 5px;">${restaurant.name}</div>
-        <div style="font-size: 0.9em; opacity: 0.9; margin-bottom: 5px;">${restaurant.location}</div>
-        <div style="font-size: 0.9em; opacity: 0.8;">${budgetSymbol}</div>
+        <div class="result-emoji">${restaurant.emoji}</div>
+        <div class="result-name">${restaurant.name}</div>
+        <div class="result-meta">${restaurant.location}<span class="price">${budgetSymbol}</span></div>
     `;
     
     // Remove picking animation class
@@ -91,8 +90,8 @@ function displayResult(restaurant) {
 
 function showError(message) {
     resultDisplay.innerHTML = `
-        <div style="font-size: 2em; margin-bottom: 10px;">😅</div>
-        <div>${message}</div>
+        <div class="result-emoji">😅</div>
+        <div class="result-meta">${message}</div>
     `;
     resultDisplay.classList.remove('picking');
 }
